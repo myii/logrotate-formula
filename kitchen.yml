@@ -191,7 +191,7 @@ suites:
             '*':
               - logrotate
       pillars_from_files:
-        logrotate.sls: pillar.example
+        logrotate.sls: test/salt/logrotate.sls
       dependencies:
         - name: states
           path: ./test/salt

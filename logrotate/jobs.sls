@@ -29,5 +29,10 @@ logrotate-{{ key }}:
         data: {{ value | json }}
       {% endif %}
     {% endif %}
+  cmd.run:
+    - name: |
+        cat {{ logrotate.include_dir }}/{{ key.split("/")[-1] }}
+    - require:
+      - file: logrotate-{{ key }}
 {%- endfor -%}
 

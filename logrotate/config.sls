@@ -13,6 +13,11 @@ logrotate-config:
     - mode: {{ salt['pillar.get']('logrotate:config:mode', '644') }}
     - context:
         logrotate: {{ logrotate|tojson }}
+  cmd.run:
+    - name: |
+        cat {{ logrotate.conf_file }}
+    - require:
+      - file: logrotate-config
 
 logrotate-directory:
   file.directory:

@@ -7,7 +7,7 @@ logrotate:
   #   pkg: logrotate
   #   service: crond
   default_config:
-    weekly: true
+    daily: true
     rotate: 52
     create: true
     compress: true
